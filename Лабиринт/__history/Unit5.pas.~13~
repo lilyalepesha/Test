@@ -1,0 +1,54 @@
+unit Unit5;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Imaging.jpeg;
+
+type
+  TForm5 = class(TForm)
+    Edit1: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    MaskEdit1: TMaskEdit;
+    Image1: TImage;
+    Image2: TImage;
+    procedure Image2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form5: TForm5;
+
+implementation
+uses unit3;
+{$R *.dfm}
+
+
+
+
+procedure TForm5.Image2Click(Sender: TObject);
+var
+LoginUsr, PassUsr:string;
+SaveTxt:TStringList;
+begin
+SaveTxt:=TStringList.Create;
+SaveTxt.LoadFromFile(ExtractFilePath(Application.ExeName)+'RegEdit.txt');
+if (Edit1.Text<> '') and (MaskEdit1.Text<> '') then
+begin
+  LoginUsr:=(Edit1.Text);
+  PassUsr:=(MaskEdit1.Text);
+  SaveTxt.Add(LoginUsr+' '+ PassUsr);
+  SaveTxt.SaveToFile(ExtractFilePath(Application.ExeName)+'RegEdit.txt');
+  Form5.Close;
+  Form3.ShowModal;
+end
+  else
+  ShowMessage('¬ведите данные');
+end;
+end.

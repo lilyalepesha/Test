@@ -1,0 +1,73 @@
+unit Unit4;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, unit5, Vcl.Mask,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Imaging.jpeg;
+
+type
+  TForm4 = class(TForm)
+    Edit1: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    MaskEdit1: TMaskEdit;
+    Label3: TLabel;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+
+implementation
+uses unit3, Unit2;
+{$R *.dfm}
+
+procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
+end;
+
+procedure TForm4.Image2Click(Sender: TObject);
+begin
+Form5.Show;
+Form4.Hide;
+end;
+procedure TForm4.Image3Click(Sender: TObject);
+var
+Log:string;
+SaveTxt:TStringList;
+i:integer;
+begin
+SaveTxt:=TStringList.Create;
+SaveTxt.LoadFromFile(ExtractFilePath(Application.ExeName)+'RegEdit.txt');
+Log:=Edit1.Text + ' ' + MaskEdit1.Text;
+for i := 0 to SaveTxt.Count-1 do
+begin
+  if Log = SaveTxt[i] then
+  begin
+    ShowMessage('Данные введены корректно');
+    Form3.Show;
+    Form4.Hide;
+  end
+  else
+  begin
+    Label3.Visible:=True;
+    Label3.Caption:='Введите корректные данные';
+    Edit1.Clear;
+    MaskEdit1.Clear;
+  end;
+end;
+end;
+
+end.

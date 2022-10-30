@@ -1,0 +1,44 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #ccf2ff;
+	font-family: Arial, sans-serif;
+}
+
+.bonus_h1{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	color: #ff3838
+
+}
+.bon{
+	width: 120px;
+	height: 120px;
+	margin-top: 20px;
+	
+
+}
+h2{
+	color: #e07800;
+}
+.desc{
+	margin: 20px;
+
+}
+.main{
+	margin-top: 40px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+}
+.bonus{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

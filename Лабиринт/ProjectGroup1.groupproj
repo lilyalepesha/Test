@@ -1,0 +1,39 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3029B6DB-3486-4A88-BFBE-9198E2A38FDA}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Labyrinth.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\HP\Desktop\Лабиринт\Labyrinth.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Labyrinth">
+        <MSBuild Projects="C:\Users\HP\Desktop\Лабиринт\Labyrinth.dproj"/>
+    </Target>
+    <Target Name="Labyrinth:Clean">
+        <MSBuild Projects="C:\Users\HP\Desktop\Лабиринт\Labyrinth.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Labyrinth:Make">
+        <MSBuild Projects="C:\Users\HP\Desktop\Лабиринт\Labyrinth.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Labyrinth;Labyrinth"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Labyrinth:Clean;Labyrinth:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Labyrinth:Make;Labyrinth:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

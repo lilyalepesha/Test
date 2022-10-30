@@ -1,0 +1,52 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #ccf2ff;
+	font-family: Montserrat, sans-serif;
+	min-height: 100vh;
+	margin: 0 auto;
+}
+.bonus_h1{
+	text-align: center;
+	margin-top: 20px;
+	color: #03cffc;
+}
+.bon{
+	width: 120px;
+	height: 120px;
+	margin-top: 20px;
+	
+
+}
+h2{
+	color: #e07800;
+}
+.desc{
+	margin: 20px;
+
+}
+.main{
+	margin-top: 40px;
+}
+.bonus{
+	text-align: center;
+}
+p{
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 2;
+}
+h1:hover{
+	color: orange;
+}
+img:hover{
+	width: 130px;
+	height: 130px;
+	box-shadow: 0px 0px 5px black;
+} 
+h2:hover{
+	color: #03cffc;
+}

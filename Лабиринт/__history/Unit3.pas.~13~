@@ -1,0 +1,79 @@
+unit Unit3;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.jpeg, Vcl.ExtCtrls, unit1,
+  Vcl.Samples.Gauges, ShellAPI, Vcl.Menus, Vcl.OleCtrls, SHDocVw;
+
+type
+  TForm3 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    Image5: TImage;
+    WebBrowser1: TWebBrowser;
+    procedure Image2Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure N2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Image5Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+{$R *.dfm}
+
+
+
+procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
+end;
+
+procedure TForm3.Image2Click(Sender: TObject);
+begin
+ShowMessage('Игра началась! Уровень первый');
+Form1.Timer1.Enabled:=True;
+Form1.Show;
+Form3.Hide;
+end;
+
+procedure TForm3.Image3Click(Sender: TObject);
+begin
+  ShellExecute(0,PChar('Open'), PChar('Delphi.chm'), nil, nil, SW_SHOW);
+end;
+
+procedure TForm3.Image4Click(Sender: TObject);
+begin
+Form3.Hide;
+end;
+
+
+procedure TForm3.Image5Click(Sender: TObject);
+var
+dir : string;
+begin
+dir := GetCurrentDir;
+WebBrowser1.Navigate(GetCurrentDir+'\bonuses.html');
+end;
+
+
+procedure TForm3.N2Click(Sender: TObject);
+begin
+   ShellExecute(0,PChar('Open'), PChar('Delphi.chm'), nil, nil, SW_SHOW);
+end;
+
+end.
